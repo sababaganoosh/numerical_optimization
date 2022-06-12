@@ -79,3 +79,95 @@ def f6(x, hess):
         return f, g, h
     else:
         return f, g
+
+
+def func1(var):
+    x, y, z = var
+
+    f = x ** 2 + y ** 2 + (z + 1) ** 2
+    g = np.array([[2 * x, 2 * y, 2 * z + 2]]).T
+    h = np.array([[2, 0, 0],
+                  [0, 2, 0],
+                  [0, 0, 2]])
+
+    return f, g, h
+
+
+def p1_ineq1(var):
+    x, y, z = var
+
+    f = -x
+    g = np.array([[-1, 0, 0]]).T
+    h = np.zeros((3, 3))
+
+    return f, g, h
+
+
+def p1_ineq2(var):
+    x, y, z = var
+
+    f = -y
+    g = np.array([[0, -1, 0]]).T
+    h = np.zeros((3, 3))
+
+    return f, g, h
+
+
+def p1_ineq3(var):
+    x, y, z = var
+
+    f = -z
+    g = np.array([[0, 0, -1]]).T
+    h = np.zeros((3, 3))
+
+    return f, g, h
+
+
+def func2(var):
+    x, y = var
+
+    f = x + y
+    g = np.array([[1, 1]]).T
+    h = np.zeros((2, 2))
+
+    return -f, -g, -h
+
+
+def p2_ineq1(var):
+    x, y = var
+
+    f = -x - y + 1
+    g = np.array([[-1, -1]]).T
+    h = np.zeros((2, 2))
+
+    return f, g, h
+
+
+def p2_ineq2(var):
+    x, y = var
+
+    f = y - 1
+    g = np.array([[0, 1]]).T
+    h = np.zeros((2, 2))
+
+    return f, g, h
+
+
+def p2_ineq3(var):
+    x, y = var
+
+    f = x - 2
+    g = np.array([[1, 0]]).T
+    h = np.zeros((2, 2))
+
+    return f, g, h
+
+
+def p2_ineq4(var):
+    x, y = var
+
+    f = -y
+    g = np.array([[0, -1]]).T
+    h = np.zeros((2, 2))
+
+    return f, g, h

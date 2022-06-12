@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def line_searech_min(f, x0, step_len, obj_tol, param_tol, max_iter, min_type):
+def line_search_min(f, x0, step_len, obj_tol, param_tol, max_iter, min_type):
     """
     Inputs:
     f         - the function to minimize
