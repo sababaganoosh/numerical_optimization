@@ -4,8 +4,6 @@ from src.utils import *
 
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.backends.backend_pdf import PdfPages
-import latex
 
 functions = [f1, f2, f3, f4, f5, f6]
 
@@ -22,8 +20,8 @@ for f in functions:
 
     print(f'Function - {f.__name__}')
     print('Gradient Descent:')
-    grad_iterations, _, _ = line_searech_min(f, x0, step_len, obj_tol, param_tol, max_iter, min_type='gradient')
+    grad_iterations, _, _ = line_search_min(f, x0, step_len, obj_tol, param_tol, max_iter, min_type='gradient')
     print("Newton's Method:")
-    newton_iterations, _, _ = line_searech_min(f, x0, step_len, obj_tol, param_tol, max_iter, min_type='newton')
+    newton_iterations, _, _ = line_search_min(f, x0, step_len, obj_tol, param_tol, max_iter, min_type='newton')
     fig = line_search_plots(grad_iterations, newton_iterations, f)
     plt.savefig(f'{f.__name__}_plots')
